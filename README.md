@@ -1,1 +1,1 @@
-# cross_platform_programming
+# cross_platform_programming  Варіант 10
