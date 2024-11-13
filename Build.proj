@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <Platform>AnyCPU</Platform>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <SolutionPath>crossplatform.sln</SolutionPath>
+  </PropertyGroup>
+
+  <Target Name="BuildSolution">
+    <MSBuild 
+      Projects="$(SolutionPath)" 
+      Targets="Build" 
+      Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+  </Target>
+
+  <Target Name="RunTests" DependsOnTargets="BuildSolution">
+    <Exec Command="dotnet test Lab1.Tests\Lab1.Tests.csproj" />
+  </Target>
+
+  <Target Name="BuildAndTest" DependsOnTargets="BuildSolution;RunTests" />
+</Project>
