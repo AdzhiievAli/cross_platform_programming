@@ -1,10 +1,17 @@
-﻿@model lab5site.Models.HomeViewModel
+@model lab5site.Models.HomeViewModel
 
 <div>
     <h1>@Model.WelcomeMessage</h1>
 </div>
-
-<a href="@Url.Action("Index", "Registration")">Зарегистрироваться</a>
+<nav>
+    <ul>
+        <li><a asp-controller="Lab1" asp-action="Index">Лабораторная 1</a></li>
+        <li><a asp-controller="Lab2" asp-action="Index">Лабораторная 2</a></li>
+        <li><a asp-controller="Lab3" asp-action="Index">Лабораторная 3</a></li>
+    </ul>
+</nav>
+<a href="@Url.Action("Index", "Registration")">Реєстрація</a>
+<a href="@Url.Action("Index", "Profile")">Профіль</a>
 <ul>
     <li>Лабораторна 1: У міському зоопарку містяться тварини різних видів. Для участі у міжнародній виставці «Три тварюки» зоопарк має представити трьох тварин різних видів.
 Потрібно написати програму, яка обчислить кількість способів вибрати трьох тварин для участі у виставці.
@@ -27,4 +34,13 @@
 У першому рядку вхідного файлу INPUT.TXT дано два цілих числа: N і M (0 ≤ N, M ≤ 100), де N – кількість ОВП, а M – кількість пар ОВП, які не можуть сидіти за одним столом. У наступних M рядках записано по 2 числа – пари ОВП, які не можуть сидіти за одним столом.
 </li>
 </ul>
-
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="@Url.Action("Profile", "Account")">Go to Profile</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Login", "Account")">Login</a>
+    }
+</p>
