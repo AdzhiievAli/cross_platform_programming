@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Лабораторная 2";
+}
+<h2>Лабораторна работа 2</h2>
+
+<form asp-action="Run" method="post">
+    <div>
+        <label for="inputPath">шлях до вхідного файла:</label>
+        <input type="text" id="inputPath" name="inputPath" required />
+    </div>
+    <div>
+        <label for="outputPath">шлях до вихідного файлу:</label>
+        <input type="text" id="outputPath" name="outputPath" required />
+    </div>
+    <button type="submit">запуск</button>
+</form>
+
+@if (ViewData["Result"] != null)
+{
+    <p>@ViewData["Result"]</p>
+}
