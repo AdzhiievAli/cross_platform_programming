@@ -22,13 +22,13 @@ public class AccountController : Controller
     [Authorize]
     public IActionResult Profile()
     {
-        var userProfile = new
+        var model = new UserProfileViewModel
         {
             Name = User.Identity.Name,
             EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
             ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value
         };
-        return View(userProfile);
+        return View(model);
     }
 
     [Authorize]
