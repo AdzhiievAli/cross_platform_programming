@@ -1,0 +1,11 @@
+@model lab5site.Models.UserProfileViewModel
+
+<h2>User Profile</h2>
+
+<div>
+    <img src="@Model.ProfileImage" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+    <h3>@Model.Name</h3>
+    <p>Email: @Model.EmailAddress</p>
+</div>
+
+<a href="@Url.Action("Logout", "Account")">Logout</a>
